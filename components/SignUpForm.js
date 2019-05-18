@@ -3,10 +3,15 @@ import { View, Text } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 
 class SingUpForm extends Components { 
-    constructor (props) {
+  /*   constructor (props) {
         super(props);
         this.state = { phone : ''}
-    }
+    } */
+
+    // state decleat outside the constactor equvelant to inside the constactor.
+
+    state = { phone : ''};
+
     render() {
         return (
             <View>
