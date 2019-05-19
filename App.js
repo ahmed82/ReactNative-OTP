@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import SignUpForm from './components/SignUpForm';
+import  SignUpForm from './components/SignUpForm';
 
 export default class App extends React.Component {
   render() {
