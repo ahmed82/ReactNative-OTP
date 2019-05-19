@@ -18,9 +18,14 @@ class SingUpForm extends Component {
     state = { phone : ''};
     // refactore in async await
     handleSubmit = async() =>{
-         await axios.post(`${ROOT_URL}/createUser`, { phone : this.state.phone }) // after createing a new user we what to request the new password to be generated and send
-         await axios.post(`${ROOT_URL}/requestOneTimePassword`, { phone : this.state.phone } )
-    }
+       try {
+         await axios.post(`${ROOT_URL}/createUser`, { phone : this.state.phone }); // after createing a new user we what to request the new password to be generated and send
+         await axios.post(`${ROOT_URL}/requestOneTimePassword`, { phone : this.state.phone });
+           } catch (err) {
+            // setState({ error: 'Somthing went worng'}) to be used in the runder methde to show err to the user
+            console.log(err);
+        }
+     }
 
     handleSubmit_OLD = () =>{
         axios.post(`${ROOT_URL}/createUser` , {
@@ -29,7 +34,8 @@ class SingUpForm extends Component {
         .then(() => {
             axios.post(`${ROOT_URL}/requestOneTimePassword` ,{ phone : this.state.phone } )
         })
-    }
+        .catch((err) => console.log(err))
+    } 
 
     /*   handleSubmit(){
         // this is correct inside the call back function which is "here" 
