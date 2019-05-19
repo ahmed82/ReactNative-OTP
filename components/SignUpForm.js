@@ -54,7 +54,7 @@ class SingUpForm extends Component {
                         />
                  <Input
                  style = {{ marginBottom: 10 }}
-                    label="Enter Phone Number"
+                    label="Sign Up with Phone Number"
                     placeholder='phone #'
                     dataDetectorTypes='phoneNumber'
                     value = {this.state.phone}
