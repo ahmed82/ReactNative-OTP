@@ -16,7 +16,13 @@ class SingUpForm extends Component {
     // state decleat outside the constactor equvelant to inside the constactor.
 
     state = { phone : ''};
-    handleSubmit = () =>{
+    // refactore in async await
+    handleSubmit = async() =>{
+         await axios.post(`${ROOT_URL}/createUser`, { phone : this.state.phone }) // after createing a new user we what to request the new password to be generated and send
+         await axios.post(`${ROOT_URL}/requestOneTimePassword`, { phone : this.state.phone } )
+    }
+
+    handleSubmit_OLD = () =>{
         axios.post(`${ROOT_URL}/createUser` , {
             phone : this.state.phone
         }) // after createing a new user we what to request the new password to be generated and send
